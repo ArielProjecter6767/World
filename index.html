@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a13">
+  <title>Aether AI — Your space to think</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <main id="authScreen" class="auth-screen">
+    <div class="brand"><span class="brand-mark">✳</span><span>AETHER <b>AI</b></span></div>
+    <section class="auth-card">
+      <div class="auth-orb-mini"><span></span></div>
+      <p class="eyebrow">YOUR PERSONAL INTELLIGENCE</p>
+      <h1 id="authTitle">A space of your own.</h1>
+      <p class="muted" id="authSubtitle">Войди в своё пространство или создай аккаунт.</p>
+      <form id="authForm">
+        <label>Никнейм или почта<input id="loginField" autocomplete="username" placeholder="your.name" required></label>
+        <label id="emailLabel" class="hidden">Электронная почта<input id="emailField" type="email" autocomplete="email" placeholder="you@example.com"></label>
+        <label>Пароль<input id="passwordField" type="password" autocomplete="current-password" minlength="8" placeholder="Минимум 8 символов" required></label>
+        <button class="primary-btn" id="authSubmit" type="submit">Войти <span>↗</span></button>
+      </form>
+      <p class="auth-switch"><span id="switchText">Впервые здесь?</span> <button id="switchMode" type="button">Создать аккаунт</button></p>
+      <p id="authError" class="error-line" role="status"></p>
+    </section>
+    <p class="auth-foot">PRIVATE BY DESIGN · BUILT FOR CURIOSITY</p>
+  </main>
+
+  <main id="appScreen" class="app-screen hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">✳</span><span>AETHER <b>AI</b></span></a>
+      <button class="new-chat" id="newChat"><span>＋</span> Новый диалог</button>
+      <div class="side-label">WORKSPACE</div>
+      <button class="side-item active"><span>◉</span> Aether Assistant</button>
+      <button class="side-item" id="futureEarth"><span>◎</span> Земля и погода <i>скоро</i></button>
+      <button class="side-item" id="futureFiles"><span>⌘</span> Код и файлы <i>скоро</i></button>
+      <div class="sidebar-bottom">
+        <div class="status-pill"><span class="status-dot"></span> Система активна</div>
+        <button class="user-chip" id="logoutBtn"><span class="avatar">A</span><span class="user-info"><b id="userName">Пользователь</b><small>Личный аккаунт</small></span><span class="logout-icon">↗</span></button>
+      </div>
+    </aside>
+    <section class="workspace">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">✳</span> AETHER AI</div><div class="top-caption"><span class="tiny-glow"></span> PERSONAL AI SPACE</div><button class="top-avatar" id="topLogout" title="Выйти">A</button></header>
+      <div class="conversation" id="conversation">
+        <div class="welcome-block" id="welcomeBlock">
+          <div class="welcome-tag">AETHER · ONLINE</div>
+          <h1>Think beyond<br><span>the ordinary.</span></h1>
+          <p>Твоё пространство для идей, исследований и создания нового.</p>
+        </div>
+        <div class="orb-stage" id="orbStage" aria-label="Интерактивная сфера Aether AI">
+          <div class="orb-halo halo-one"></div><div class="orb-halo halo-two"></div>
+          <canvas id="orbCanvas" aria-label="Нажми, чтобы начать разговор"></canvas>
+          <div class="orb-label" id="orbLabel"><span class="orb-label-dot"></span> TOUCH TO CONNECT</div>
+        </div>
+        <div class="quick-prompts" id="quickPrompts">
+          <button data-prompt="Привет! Расскажи, что ты умеешь."><span>✧</span> Что ты умеешь?</button>
+          <button data-prompt="Помоги придумать и спланировать новый проект."><span>⌁</span> Придумать проект</button>
+          <button data-prompt="Объясни сложную идею простыми словами."><span>◌</span> Объяснить идею</button>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </div>
+      <footer class="composer-wrap">
+        <form id="chatForm" class="composer">
+          <button type="button" id="voiceButton" class="voice-btn" title="Голосовой ввод">⌁</button>
+          <textarea id="messageInput" rows="1" placeholder="Спроси о чём угодно..." maxlength="8000"></textarea>
+          <button type="submit" id="sendButton" class="send-btn" aria-label="Отправить">↑</button>
+        </form>
+        <div class="composer-note">Aether может ошибаться. Проверяй важную информацию.</div>
+      </footer>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
